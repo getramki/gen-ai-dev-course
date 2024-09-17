@@ -3,7 +3,7 @@ import os
 
 # Set up your OpenAI API credentials
 openai.api_key = os.environ.get("OPENAI_API_KEY")
-
+openai.api_type = 'openai'
 # Common code to get response from OpenAI
 def generate_response(prompt):
     response = openai.chat.completions.create(

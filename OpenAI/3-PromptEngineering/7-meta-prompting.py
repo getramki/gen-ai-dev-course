@@ -3,7 +3,7 @@ import os
 
 # Set up your OpenAI API credentials
 openai.api_key = os.environ.get("OPENAI_API_KEY")
-
+openai.api_type = 'openai'
 # Example 7: meta prompting - Meta Prompting is an advanced prompting technique that focuses on the structural and syntactical aspects of tasks and problems 
 # rather than their specific content details. This goal with meta prompting is to construct a more abstract, 
 # structured way of interacting with large language models (LLMs), emphasizing the form and pattern of information over traditional content-centric methods. For example, let's say we want to generate a Python function that calculates the factorial of a number. 

@@ -3,7 +3,7 @@ import os
 
 # Set up your OpenAI API credentials
 openai.api_key = os.environ.get("OPENAI_API_KEY")
-
+openai.api_type = 'openai'
 # Example 2: Few-shot learning
 few_shot_prompt = """
 Translate the following English text to French:

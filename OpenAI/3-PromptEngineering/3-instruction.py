@@ -3,7 +3,7 @@ import os
 
 # Set up your OpenAI API credentials
 openai.api_key = os.environ.get("OPENAI_API_KEY")
-
+openai.api_type = 'openai'
 # Example 3: Instruction-based prompt
 instruction_prompt = "You are a helpful assistant. Explain the concept of machine learning in simple terms."
 

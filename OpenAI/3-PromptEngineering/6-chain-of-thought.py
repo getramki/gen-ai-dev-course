@@ -3,7 +3,7 @@ import os
 
 # Set up your OpenAI API credentials
 openai.api_key = os.environ.get("OPENAI_API_KEY")
-
+openai.api_type = 'openai'
 # Example 6: Chain of thought prompting
 chain_of_thought_prompt = """
 Solve the following math problem step by step:

@@ -3,7 +3,7 @@ import os
 
 # Set up your OpenAI API credentials
 openai.api_key = os.environ.get("OPENAI_API_KEY")
-
+openai.api_type = 'openai'
 role_playing_prompt = "You are a customer support agent. Help the customer troubleshoot their internet connection issue."
 
 # Example 5: Role-playing prompt

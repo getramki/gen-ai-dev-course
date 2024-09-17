@@ -3,7 +3,7 @@ import os
 
 # Set up your OpenAI API credentials
 openai.api_key = os.environ.get("OPENAI_API_KEY")
-
+openai.api_type = 'openai'
 # Example 4: Contextual prompt
 contextual_prompt = """
 You are a travel guide. Provide a brief itinerary for a 3-day trip to Paris.

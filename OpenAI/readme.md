@@ -1,0 +1,1 @@
+This repo is example programs for Generative AI Applications with OpenAI API.
