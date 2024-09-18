@@ -3,3 +3,4 @@ genaidev/*
 LangChain-Original/*
 .env
 env-bkp.txt
+*:MSOAVINFO
