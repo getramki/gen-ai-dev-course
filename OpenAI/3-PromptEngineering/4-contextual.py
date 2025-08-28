@@ -5,9 +5,12 @@ import os
 openai.api_key = os.environ.get("OPENAI_API_KEY")
 openai.api_type = 'openai'
 # Example 4: Contextual prompt
+# contextual_prompt = """
+# You are a travel guide. Provide a brief itinerary for a 3-day trip to Paris.
+# Day 1:
+# """
 contextual_prompt = """
-You are a travel guide. Provide a brief itinerary for a 3-day trip to Paris.
-Day 1:
+provide intenary for paris trip
 """
 # Generate the completion
 response = openai.chat.completions.create(

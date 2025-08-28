@@ -1,0 +1,15 @@
+# Module 4: ChatBedrockConverse Advanced Features Dependencies
+
+# Core LangChain and AWS
+langchain>=0.1.0
+langchain-aws>=0.1.0
+boto3>=1.34.0
+
+# Enhanced conversation support
+langchain-core>=0.1.0
+langchain-community>=0.0.20
+
+# Utilities for advanced features
+python-dotenv>=1.0.0
+pydantic>=2.0.0
+rich>=13.0.0

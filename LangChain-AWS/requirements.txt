@@ -1,0 +1,32 @@
+# LangChain with AWS Bedrock Integration Course Dependencies
+# Latest versions as of 2024
+
+# Core LangChain
+langchain>=0.1.0
+langchain-core>=0.1.0
+langchain-community>=0.0.20
+langchain-aws>=0.1.0
+langchain-text-splitters>=0.0.1
+
+# AWS SDK
+boto3>=1.34.0
+botocore>=1.34.0
+
+# Additional utilities
+python-dotenv>=1.0.0
+streamlit>=1.30.0
+jupyter>=1.0.0
+pandas>=2.0.0
+numpy>=1.24.0
+
+# Vector stores and embeddings
+faiss-cpu>=1.7.4
+chromadb>=0.4.0
+
+# Document processing
+pypdf>=4.0.0
+python-docx>=1.1.0
+
+# Development tools
+black>=23.0.0
+pytest>=7.0.0
