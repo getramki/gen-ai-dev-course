@@ -1,0 +1,79 @@
+version: '3.8'
+
+services:
+  purchase-agent:
+    build:
+      context: ..
+      dockerfile: part-04-local-deployment/Dockerfile.purchase
+    image: construction-purchase-agent:latest
+    container_name: construction-purchase-agent
+    ports:
+      - "10001:10001"
+    environment:
+      - AWS_DEFAULT_REGION=us-east-1
+    volumes:
+      - agent-logs:/app/logs
+      - ~/.aws:/root/.aws:ro
+    networks:
+      - agent-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:10001/.well-known/agent-card.json"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  cement-agent:
+    build:
+      context: ..
+      dockerfile: part-04-local-deployment/Dockerfile.cement
+    image: construction-cement-agent:latest
+    container_name: construction-cement-agent
+    ports:
+      - "10002:10002"
+    environment:
+      - AWS_DEFAULT_REGION=us-east-1
+    volumes:
+      - agent-logs:/app/logs
+      - ~/.aws:/root/.aws:ro
+    networks:
+      - agent-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:10002/.well-known/agent-card.json"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  steel-agent:
+    build:
+      context: ..
+      dockerfile: part-04-local-deployment/Dockerfile.steel
+    image: construction-steel-agent:latest
+    container_name: construction-steel-agent
+    ports:
+      - "10003:10003"
+    environment:
+      - AWS_DEFAULT_REGION=us-east-1
+    volumes:
+      - agent-logs:/app/logs
+      - ~/.aws:/root/.aws:ro
+    networks:
+      - agent-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:10003/.well-known/agent-card.json"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+volumes:
+  agent-logs:
+    driver: local
+
+networks:
+  agent-network:
+    driver: bridge

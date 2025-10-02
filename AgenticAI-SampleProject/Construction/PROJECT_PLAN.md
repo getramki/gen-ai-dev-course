@@ -85,15 +85,15 @@ Construction/
    - Interactive demo script
    - Documentation
 
-### Files to Create
-- `part-01-basic-agent/README.md`
-- `part-01-basic-agent/purchase_agent.py` (with budget optimization)
-- `part-01-basic-agent/cement_agent.py` (with margin maximization)
-- `part-01-basic-agent/steel_agent.py` (with profit targets)
-- `part-01-basic-agent/constraints.py` (human-set limits)
-- `part-01-basic-agent/negotiation_cycles.py` (cycle management)
-- `part-01-basic-agent/demo.py`
-- `part-01-basic-agent/requirements.txt`
+### Files Created ✅
+- `part-01-basic-agent/README.md` - Project documentation and setup guide
+- `part-01-basic-agent/purchase_agent.py` - Purchase agent with budget optimization and LangGraph
+- `part-01-basic-agent/cement_agent.py` - Cement sales agent with margin maximization
+- `part-01-basic-agent/steel_agent.py` - Steel sales agent with profit targets
+- `part-01-basic-agent/constraints.py` - Human-set limits and approval thresholds
+- `part-01-basic-agent/negotiation_cycles.py` - Cycle management (max 5 rounds)
+- `part-01-basic-agent/demo.py` - Interactive demo with LLM reasoning
+- `part-01-basic-agent/requirements.txt` - Dependencies (LangGraph, Bedrock, etc.)
 
 ---
 
@@ -141,13 +141,21 @@ Construction/
    - Test agent-tool interactions
    - Create comprehensive demo
 
-### Files to Create
-- `part-02-mcp-integration/README.md`
-- `part-02-mcp-integration/fastmcp_servers/` (profit calculation servers)
-- `part-02-mcp-integration/tools/` (cost optimization, margin analysis)
-- `part-02-mcp-integration/enhanced_agents/` (profit-driven agents)
-- `part-02-mcp-integration/constraints_manager.py` (human limits enforcement)
-- `part-02-mcp-integration/demo.py`
+### Files Created ✅
+- `part-02-mcp-integration/README.md` - MCP integration documentation
+- `part-02-mcp-integration/fastmcp_servers/` - FastMCP servers for each domain:
+  - `construction_server.py` - Budget tracking, ROI calculation tools
+  - `cement_server.py` - Margin analysis, pricing optimization tools
+  - `steel_server.py` - Inventory costs, profit calculation tools
+- `part-02-mcp-integration/tools/` - Custom MCP tools directory
+- `part-02-mcp-integration/enhanced_agents/` - MCP-enhanced agents:
+  - `enhanced_purchase_agent.py` - Purchase agent with MCP tools
+  - `enhanced_cement_agent.py` - Cement agent with profit optimization
+  - `enhanced_steel_agent.py` - Steel agent with margin analysis
+- `part-02-mcp-integration/constraints_manager.py` - Human limits enforcement
+- `part-02-mcp-integration/demo.py` - MCP integration demo
+- `part-02-mcp-integration/requirements.txt` - MCP dependencies
+- `part-02-mcp-integration/*.db` - SQLite databases (construction, cement, steel)
 
 ---
 
@@ -199,16 +207,32 @@ Construction/
    - Demo complete procurement cycle
    - Performance and reliability testing
 
-### Files to Create
-- `part-03-a2a-communication/README.md`
-- `part-03-a2a-communication/a2a_infrastructure/`
-- `part-03-a2a-communication/agent_cards/` (identity and constraints)
-- `part-03-a2a-communication/tasks/` (procurement and sales tasks)
-- `part-03-a2a-communication/messages/` (structured communication)
-- `part-03-a2a-communication/artifacts/` (contracts and quotes)
-- `part-03-a2a-communication/cycle_manager.py` (negotiation limits)
-- `part-03-a2a-communication/competitive_agents/`
-- `part-03-a2a-communication/demo.py`
+### Files Created ✅
+- `part-03-a2a-communication/README.md` - A2A implementation documentation
+- `part-03-a2a-communication/purchase_agent/` - A2A Purchase Agent:
+  - `app/__main__.py` - A2A server setup with agent card
+  - `app/agent.py` - Enhanced agent with procurement analysis
+  - `app/agent_executor.py` - A2A protocol executor
+- `part-03-a2a-communication/cement_agent/` - A2A Cement Agent:
+  - `app/__main__.py` - A2A server with cement sales capabilities
+  - `app/agent.py` - Cement agent with profit optimization
+  - `app/agent_executor.py` - A2A protocol executor
+- `part-03-a2a-communication/steel_agent/` - A2A Steel Agent:
+  - `app/__main__.py` - A2A server with premium steel sales
+  - `app/agent.py` - Steel agent with margin maximization
+  - `app/agent_executor.py` - A2A protocol executor
+- `part-03-a2a-communication/negotiation_demo.py` - Inter-agent negotiation orchestrator
+- `part-03-a2a-communication/demo_client.py` - A2A SDK client for testing
+- `part-03-a2a-communication/test_agent_cards.py` - Agent card verification
+- `part-03-a2a-communication/debug_purchase_agent.py` - Streaming debug tool
+- `part-03-a2a-communication/start_agents.sh` - Agent startup script
+- `part-03-a2a-communication/requirements.txt` - A2A SDK dependencies
+- `part-03-a2a-communication/logs/` - Conversation and contract logs:
+  - `conversation_*.json` - Time-stamped agent interactions
+  - `negotiation_*.log` - Detailed negotiation logs
+  - `final_contract_*.json` - Contract artifacts
+- `part-03-a2a-communication/IMPLEMENTATION_SUMMARY.md` - Implementation details
+- `part-03-a2a-communication/NEGOTIATION_SUMMARY.md` - Negotiation results summary
 
 ---
 
@@ -299,7 +323,7 @@ Construction/
 - `part-05-cloud-deployment/README.md`
 - `part-05-cloud-deployment/agentcore/`
 - `part-05-cloud-deployment/kubernetes/`
-- `part-05-cloud-deployment/ci-cd/`
+- `part-05-cloud-deployment/ci-cd/``part-05-cloud-deployment/ci-cd/`
 
 ---
 
