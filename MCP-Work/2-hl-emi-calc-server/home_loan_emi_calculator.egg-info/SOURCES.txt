@@ -1,0 +1,9 @@
+README.md
+pyproject.toml
+server.py
+home_loan_emi_calculator.egg-info/PKG-INFO
+home_loan_emi_calculator.egg-info/SOURCES.txt
+home_loan_emi_calculator.egg-info/dependency_links.txt
+home_loan_emi_calculator.egg-info/entry_points.txt
+home_loan_emi_calculator.egg-info/requires.txt
+home_loan_emi_calculator.egg-info/top_level.txt

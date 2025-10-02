@@ -39,7 +39,6 @@ context = (
 question = "What is Generative AI?"
 
 prompt = f"""You will answer the question from the given context only.
-
 Context: {context}
 Question: {question}
 Answer:"""

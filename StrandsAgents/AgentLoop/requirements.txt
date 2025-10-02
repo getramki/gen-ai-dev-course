@@ -1,0 +1,11 @@
+# Strands Agents Agent Loop Demo Requirements
+# Minimal dependencies for the demo
+
+# Core Python async support (built-in)
+# No external dependencies required for this basic demo
+
+# Optional: For enhanced functionality
+# strands-agents>=0.1.0  # Uncomment when using actual Strands Agents framework
+# pydantic>=2.0.0       # For data validation
+# asyncio-mqtt>=0.11.0  # For message passing
+# loguru>=0.7.0         # For better logging

@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  langchain-api:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - MODEL_ID=anthropic.claude-3-sonnet-20240229-v1:0
+      - TEMPERATURE=0.1
+      - MAX_TOKENS=1000
+      - AWS_REGION=us-east-1
+    volumes:
+      - ~/.aws:/home/appuser/.aws:ro
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - langchain-api
+    restart: unless-stopped

@@ -1,0 +1,2 @@
+[console_scripts]
+home-loan-emi-calculator = server:main

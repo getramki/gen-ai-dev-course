@@ -63,7 +63,7 @@ def create_text_analyzer():
     chain = (
         {"text": lambda x: x}  # Pass input as 'text' key
         | prompt
-        | RunnableLambda(lambda prompt_text: prompt_text.split("Analyze this text: ")[1].split("\nProvide")[0])  # Extract original text
+        | RunnableLambda(lambda prompt_value: prompt_value.text.split("Analyze this text: ")[1].split("\nProvide")[0])
         | analyzer
         | RunnableLambda(format_results)
     )

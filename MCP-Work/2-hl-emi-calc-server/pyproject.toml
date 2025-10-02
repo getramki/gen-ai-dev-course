@@ -1,0 +1,14 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "home-loan-emi-calculator"
+version = "1.0.0"
+description = "MCP server for home loan EMI calculations"
+dependencies = [
+    "fastmcp"
+]
+
+[project.scripts]
+home-loan-emi-calculator = "server:main"

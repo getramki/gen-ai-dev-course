@@ -1,0 +1,28 @@
+{
+  "timestamp": "2025-10-02T16:58:22.173667",
+  "agent": "purchase",
+  "type": "CONNECTED",
+  "content": "Agent connected: Construction Purchase Agent",
+  "task_id": null
+}
+{
+  "timestamp": "2025-10-02T16:58:22.216925",
+  "agent": "cement",
+  "type": "CONNECTED",
+  "content": "Agent connected: Cement Sales Agent",
+  "task_id": null
+}
+{
+  "timestamp": "2025-10-02T16:58:22.257008",
+  "agent": "steel",
+  "type": "CONNECTED",
+  "content": "Agent connected: Steel Sales Agent",
+  "task_id": null
+}
+{
+  "timestamp": "2025-10-02T16:58:22.257304",
+  "agent": "purchase",
+  "type": "REQUEST",
+  "content": "\n    PROCUREMENT REQUEST:\n    - Project: Downtown Construction Complex\n    - Cement: 1000 tons, Grade 42.5, delivery within 2 weeks\n    - Steel: 100 tons, Grade A, rebar and structural, delivery within 2 weeks\n    - Budget: $130,000 total\n    - Location: Downtown construction site\n    - Payment terms: 30 days net\n    \n    Please provide detailed quotes with breakdown and negotiate best terms.\n    ",
+  "task_id": null
+}

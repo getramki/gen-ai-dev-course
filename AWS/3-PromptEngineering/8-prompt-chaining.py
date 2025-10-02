@@ -37,7 +37,7 @@ print("\nCuisine Type:")
 print(cuisine_type)
 
 # Step 3: Suggest a wine pairing
-wine_prompt = f"Suggest a wine pairing for the following recipe and cuisine type:\n\nRecipe:\n{recipe}\n\nCuisine Type:\n{cuisine_type}"
+wine_prompt = f"Suggest a wine pairing for the following recipe and cuisine type:\n\nRecipe:\n{recipe}\n\nCuisine Type:\n{cuisine_type}. Give Final Output in JSON Format"
 wine_pairing = get_completion(wine_prompt)
 print("\nWine Pairing Suggestion:")
 print(wine_pairing)

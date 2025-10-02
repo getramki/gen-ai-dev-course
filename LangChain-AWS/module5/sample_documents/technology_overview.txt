@@ -1,0 +1,95 @@
+"""
+Sample document content for the Document Q&A System demonstration.
+This file contains information about various topics that can be used for testing.
+"""
+
+# Sample Document: Technology Overview
+
+## Cloud Computing
+
+Cloud computing is the delivery of computing services including servers, storage, databases, networking, software, analytics, and intelligence over the Internet ("the cloud") to offer faster innovation, flexible resources, and economies of scale.
+
+### Types of Cloud Services:
+1. **Infrastructure as a Service (IaaS)**: Provides virtualized computing resources
+2. **Platform as a Service (PaaS)**: Provides a platform for developing applications
+3. **Software as a Service (SaaS)**: Provides software applications over the internet
+
+### Major Cloud Providers:
+- Amazon Web Services (AWS)
+- Microsoft Azure
+- Google Cloud Platform (GCP)
+- IBM Cloud
+
+## Artificial Intelligence and Machine Learning
+
+Artificial Intelligence (AI) is the simulation of human intelligence in machines that are programmed to think and learn like humans. Machine Learning (ML) is a subset of AI that enables machines to learn from data without being explicitly programmed.
+
+### Machine Learning Types:
+1. **Supervised Learning**: Uses labeled training data
+2. **Unsupervised Learning**: Finds patterns in unlabeled data
+3. **Reinforcement Learning**: Learns through trial and error
+
+### Popular AI Applications:
+- Natural Language Processing
+- Computer Vision
+- Recommendation Systems
+- Autonomous Vehicles
+- Chatbots and Virtual Assistants
+
+## DevOps and Containerization
+
+DevOps is a set of practices that combines software development (Dev) and IT operations (Ops) to shorten the development lifecycle and provide continuous delivery.
+
+### Key DevOps Tools:
+- **Version Control**: Git, GitHub, GitLab
+- **CI/CD**: Jenkins, GitHub Actions, AWS CodePipeline
+- **Containerization**: Docker, Kubernetes
+- **Infrastructure as Code**: Terraform, CloudFormation
+- **Monitoring**: Prometheus, Grafana, CloudWatch
+
+### Container Benefits:
+- Consistency across environments
+- Resource efficiency
+- Scalability
+- Portability
+- Faster deployment
+
+## Cybersecurity
+
+Cybersecurity is the practice of protecting systems, networks, and programs from digital attacks. These attacks usually aim to access, change, or destroy sensitive information.
+
+### Common Security Threats:
+1. **Malware**: Viruses, worms, trojans
+2. **Phishing**: Fraudulent emails and websites
+3. **Ransomware**: Encrypts data for ransom
+4. **DDoS Attacks**: Overwhelms systems with traffic
+5. **SQL Injection**: Exploits database vulnerabilities
+
+### Security Best Practices:
+- Use strong, unique passwords
+- Enable multi-factor authentication
+- Keep software updated
+- Regular security audits
+- Employee security training
+- Data encryption
+- Network segmentation
+
+## Data Science and Analytics
+
+Data Science is an interdisciplinary field that uses scientific methods, processes, algorithms, and systems to extract knowledge and insights from structured and unstructured data.
+
+### Data Science Process:
+1. **Data Collection**: Gathering relevant data
+2. **Data Cleaning**: Removing inconsistencies
+3. **Exploratory Data Analysis**: Understanding patterns
+4. **Model Building**: Creating predictive models
+5. **Model Evaluation**: Testing model performance
+6. **Deployment**: Implementing models in production
+
+### Popular Tools:
+- **Programming**: Python, R, SQL
+- **Visualization**: Tableau, Power BI, matplotlib
+- **Machine Learning**: scikit-learn, TensorFlow, PyTorch
+- **Big Data**: Spark, Hadoop, Kafka
+
+This document provides a comprehensive overview of modern technology topics that are essential for understanding today's digital landscape.
