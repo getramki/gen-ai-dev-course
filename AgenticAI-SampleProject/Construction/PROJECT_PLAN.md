@@ -273,57 +273,268 @@ Construction/
    - Basic monitoring setup
    - Debugging tools and techniques
 
-### Files to Create
-- `part-04-local-deployment/README.md`
-- `part-04-local-deployment/Dockerfile.*`
-- `part-04-local-deployment/docker-compose.yml`
-- `part-04-local-deployment/scripts/`
+### Files Created ✅
+- `part-04-local-deployment/README.md` - Docker deployment documentation
+- `part-04-local-deployment/Dockerfile.purchase` - Purchase agent container
+- `part-04-local-deployment/Dockerfile.cement` - Cement agent container
+- `part-04-local-deployment/Dockerfile.steel` - Steel agent container
+- `part-04-local-deployment/docker-compose.yml` - Multi-container orchestration
+- `part-04-local-deployment/.env.example` - Environment configuration template
+- `part-04-local-deployment/scripts/` - Management scripts:
+  - `build.sh` - Build Docker images
+  - `deploy.sh` - Deploy containers with health checks
+  - `test.sh` - Test deployment and agent communication
+  - `cleanup.sh` - Clean up resources
+- `part-04-local-deployment/DEMO_INSTRUCTIONS.md` - 65-minute step-by-step demo guide
 
 ---
 
-## Part 5: Cloud Deployment (AgentCore & EKS)
-**Duration**: 4-5 hours  
-**Objective**: Deploy to production environments
+## Part 5-A: AgentCore Deployment (Direct)
+**Duration**: 2-3 hours  
+**Objective**: Deploy Part 4 agents directly to AWS AgentCore platform
 
 ### Learning Goals
-- AgentCore deployment concepts
-- Kubernetes fundamentals for EKS
-- Cloud-native agent architecture
-- Production monitoring and scaling
+- AgentCore platform concepts and architecture
+- Agent registration and lifecycle management
+- AgentCore-specific A2A communication
+- Platform monitoring and debugging
 
 ### Deliverables
-1. AgentCore deployment configuration
-2. EKS deployment manifests
-3. CI/CD pipeline setup
-4. Production monitoring dashboard
+1. AgentCore deployment of containerized agents
+2. Agent registration and setup
+3. Platform-specific testing
+4. AgentCore monitoring dashboard
 
 ### Step-by-Step Instructions
-1. **AgentCore Deployment**
+1. **AgentCore Setup**
    - Configure AgentCore environment
-   - Deploy agents to AgentCore
-   - Test AgentCore-specific features
+   - Setup agent registration
+   - Configure platform permissions
 
-2. **EKS Deployment**
-   - Create EKS cluster
-   - Deploy agents as Kubernetes pods
-   - Configure ingress and services
+2. **Direct Agent Deployment**
+   - Deploy Part 4 Docker containers to AgentCore
+   - Configure agent cards for platform
+   - Test AgentCore-specific features with LangChain tools
 
-3. **CI/CD Pipeline**
-   - Setup GitHub Actions/CodePipeline
-   - Automated testing and deployment
-   - Container registry integration
+3. **Platform Integration**
+   - Setup AgentCore A2A communication
+   - Configure platform monitoring
+   - Test inter-agent communication on platform
 
-4. **Production Operations**
-   - Monitoring with CloudWatch
-   - Logging aggregation
-   - Auto-scaling configuration
+4. **Production Readiness**
+   - Performance optimization for platform
+   - Security configuration
+   - Monitoring and alerting setup
+
+### Files to Create
+- `part-05a-agentcore-direct/README.md`
+- `part-05a-agentcore-direct/agentcore-config/`
+- `part-05a-agentcore-direct/deployment-scripts/`
+- `part-05a-agentcore-direct/monitoring/`
+
+---
+
+## Part 5-B: AgentCore with Lambda MCP Tools
+**Duration**: 4-5 hours  
+**Objective**: Deploy agents with Lambda-based MCP tools via AgentCore Gateway
+
+### Learning Goals
+- Lambda functions as MCP tools
+- AgentCore Gateway MCP integration
+- Serverless tool architecture
+- MCP protocol over AgentCore Gateway
+
+### Deliverables
+1. Lambda functions for each agent's MCP tools
+2. AgentCore Gateway MCP configuration
+3. Enhanced agents using Lambda MCP tools
+4. End-to-end MCP tool integration
+
+### Step-by-Step Instructions
+1. **Lambda MCP Tools Development**
+   - Convert Part 2 FastMCP servers to Lambda functions
+   - Create Lambda for Purchase Agent tools (budget tracking, ROI calculation)
+   - Create Lambda for Cement Agent tools (margin analysis, pricing optimization)
+   - Create Lambda for Steel Agent tools (inventory costs, profit calculation)
+
+2. **AgentCore Gateway Integration**
+   - Configure AgentCore Gateway for MCP protocol
+   - Setup Lambda function endpoints
+   - Configure MCP tool discovery and routing
+
+3. **Agent Enhancement**
+   - Modify agents to use AgentCore Gateway MCP tools
+   - Replace LangChain tools with MCP Lambda calls
+   - Test tool integration and performance
+
+4. **Production Deployment**
+   - Deploy Lambda functions with proper IAM roles
+   - Configure AgentCore Gateway routing
+   - Setup monitoring and logging for Lambda tools
+   - Test complete agent-to-Lambda-tool workflow
+
+### Files to Create
+- `part-05b-agentcore-lambda-mcp/README.md`
+- `part-05b-agentcore-lambda-mcp/lambda-functions/`
+  - `purchase-agent-tools/` - Lambda MCP tools for purchase agent
+  - `cement-agent-tools/` - Lambda MCP tools for cement agent
+  - `steel-agent-tools/` - Lambda MCP tools for steel agent
+- `part-05b-agentcore-lambda-mcp/agentcore-gateway/`
+- `part-05b-agentcore-lambda-mcp/enhanced-agents/`
+- `part-05b-agentcore-lambda-mcp/deployment/`
+- `part-05b-agentcore-lambda-mcp/monitoring/`
+
+---
+
+## Part 6-A: EKS Deployment with Embedded Agents
+**Duration**: 3-4 hours  
+**Objective**: Deploy Part 4 agents to EKS with A2A communication across subdomains
+
+### Learning Goals
+- EKS cluster creation with eksctl
+- Kubernetes namespaces and deployments
+- External A2A communication across subdomains
+- Horizontal Pod Autoscaling (HPA)
+- Ingress controllers and load balancing
+
+### Deliverables
+1. EKS cluster with separate namespaces for each agent
+2. External A2A communication across different subdomains
+3. Horizontal autoscaling demonstration
+4. Production monitoring and scaling
+
+### Step-by-Step Instructions
+1. **EKS Infrastructure with eksctl**
+   - Create EKS cluster using eksctl
+   - Setup node groups and networking
+   - Configure ingress controllers
+
+2. **Namespace-based Agent Deployment**
+   - Create namespaces: `part-a-purchase-ns`, `part-a-cement-ns`, `part-a-steel-ns`
+   - Deploy Part 4 agents (with embedded LangChain tools) to separate namespaces
+   - Configure Kubernetes deployments and services
+
+3. **Multi-Subdomain A2A Communication**
+   - Deploy purchase agent on `purchase.construction.example.com`
+   - Deploy cement agent on `cement.construction.example.com`
+   - Deploy steel agent on `steel.construction.example.com`
+   - Configure external A2A communication across internet-facing endpoints
+
+4. **Horizontal Pod Autoscaling**
+   - Configure HPA for each agent deployment
+   - Setup CPU and memory-based scaling
+   - Load testing to demonstrate autoscaling
+
+5. **Production Operations**
+   - Basic monitoring with CloudWatch
+   - Logging configuration
    - Security best practices
 
 ### Files to Create
-- `part-05-cloud-deployment/README.md`
-- `part-05-cloud-deployment/agentcore/`
-- `part-05-cloud-deployment/kubernetes/`
-- `part-05-cloud-deployment/ci-cd/``part-05-cloud-deployment/ci-cd/`
+- `part-06a-eks-embedded-agents/README.md`
+- `part-06a-eks-embedded-agents/eksctl/`
+  - `cluster-config.yaml` - EKS cluster configuration
+- `part-06a-eks-embedded-agents/kubernetes/`
+  - `namespaces/` - Namespace definitions
+  - `deployments/` - Agent deployment manifests
+  - `services/` - Service definitions
+  - `ingress/` - Ingress configurations
+  - `hpa/` - Horizontal Pod Autoscaler configs
+- `part-06a-eks-embedded-agents/scripts/`
+  - `deploy.sh` - Deployment automation
+  - `test-autoscaling.sh` - HPA testing
+- `part-06a-eks-embedded-agents/negotiation_demo.py` - EKS-based negotiation demo
+
+---
+
+## Part 6-B: EKS Deployment with Separated MCP Tools
+**Duration**: 4-5 hours  
+**Objective**: Deploy agents and MCP tools as separate containers with internal MCP communication
+
+### Learning Goals
+- MCP tools as separate containers
+- Internal communication (Agent ↔ MCP Tools)
+- Advanced Kubernetes orchestration
+- Helm charts for deployment automation
+
+### Deliverables
+1. Agents and MCP tools in separate pods within same namespaces
+2. Internal MCP communication between agent and tool pods
+3. Kubernetes deployment scripts and Helm charts
+4. Advanced monitoring and scaling
+
+### Part 6-B-1: Kubernetes Deployment Scripts
+**Duration**: 2-3 hours
+
+#### Step-by-Step Instructions
+1. **Namespace-based MCP Deployment**
+   - Create namespaces: `part-b-purchase-ns`, `part-b-cement-ns`, `part-b-steel-ns`
+   - Deploy agents (from Part 2) and MCP tools (from Part 2) as separate pods
+   - Configure internal MCP communication within namespaces
+
+2. **MCP Tools Containerization**
+   - Create Dockerfiles for MCP servers (construction, cement, steel)
+   - Deploy MCP tools as separate pods in same namespace as agents
+   - Configure Kubernetes services for internal MCP communication
+
+3. **Internal Communication Architecture**
+   - Agent pods communicate with their MCP tool pods via Kubernetes services
+   - MCP protocol over internal cluster networking
+   - Service discovery and DNS resolution
+
+4. **Horizontal Pod Autoscaling**
+   - Configure HPA for both agents and MCP tools
+   - Independent scaling of agents and tools
+   - Load testing for MCP communication
+
+#### Files to Create
+- `part-06b1-eks-mcp-scripts/README.md`
+- `part-06b1-eks-mcp-scripts/kubernetes/`
+  - `namespaces/` - Namespace definitions
+  - `agents/` - Agent deployment manifests
+  - `mcp-tools/` - MCP tool deployment manifests
+  - `services/` - Internal service definitions
+  - `hpa/` - Autoscaling configurations
+- `part-06b1-eks-mcp-scripts/dockerfiles/`
+  - `mcp-construction-server/`
+  - `mcp-cement-server/`
+  - `mcp-steel-server/`
+- `part-06b1-eks-mcp-scripts/negotiation_demo.py` - Kubernetes-based negotiation demo
+
+### Part 6-B-2: Helm Chart Deployment
+**Duration**: 2-3 hours
+
+#### Step-by-Step Instructions
+1. **Helm Chart Development**
+   - Create Helm charts for agent and MCP tool deployments
+   - Parameterize configurations for different environments
+   - Template-based deployment automation
+
+2. **Advanced Deployment Features**
+   - Rolling updates and rollback strategies
+   - ConfigMaps and Secrets management
+   - Advanced networking policies
+
+3. **Production-Grade Operations**
+   - Monitoring with Prometheus and Grafana
+   - Logging aggregation with Fluentd/CloudWatch
+   - Advanced security configurations
+   - Network policies and RBAC
+
+#### Files to Create
+- `part-06b2-eks-helm-charts/README.md`
+- `part-06b2-eks-helm-charts/helm-charts/`
+  - `construction-agents/` - Main Helm chart
+    - `templates/` - Kubernetes templates
+    - `values.yaml` - Default values
+    - `Chart.yaml` - Chart metadata
+  - `mcp-tools/` - MCP tools subchart
+- `part-06b2-eks-helm-charts/monitoring/`
+  - `prometheus/` - Monitoring configuration
+  - `grafana/` - Dashboard definitions
+- `part-06b2-eks-helm-charts/scripts/`
+  - `helm-deploy.sh` - Helm deployment automation
+- `part-06b2-eks-helm-charts/negotiation_demo.py` - Helm-based negotiation demo
 
 ---
 
@@ -379,8 +590,12 @@ Construction/
 ## Timeline
 - **Week 1**: Parts 1-2 (Basic agents + MCP)
 - **Week 2**: Part 3 (A2A communication)
-- **Week 3**: Parts 4-5 (Deployment)
-- **Week 4**: Integration testing and documentation
+- **Week 3**: Part 4 (Local Docker deployment)
+- **Week 4**: Part 5-A (AgentCore direct deployment)
+- **Week 5**: Part 5-B (AgentCore with Lambda MCP tools)
+- **Week 6**: Part 6-A (EKS with embedded agents)
+- **Week 7**: Part 6-B (EKS with separated MCP tools)
+- **Week 8**: Integration testing and documentation
 
 ## Prerequisites
 - Docker installed and configured

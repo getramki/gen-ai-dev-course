@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: steel-agent
+  namespace: part-a-steel-ns
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: steel-agent
+  template:
+    metadata:
+      labels:
+        app: steel-agent
+    spec:
+      containers:
+      - name: steel-agent
+        image: ${AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com/construction-steel-agent:latest
+        ports:
+        - containerPort: 10003
+        env:
+        - name: AGENT_TYPE
+          value: "steel"
+        - name: A2A_ENDPOINT
+          valueFrom:
+            configMapKeyRef:
+              name: alb-endpoints
+              key: steel-endpoint
+        resources:
+          requests:
+            cpu: 100m
+            memory: 256Mi
+          limits:
+            cpu: 500m
+            memory: 512Mi
+        livenessProbe:
+          httpGet:
+            path: /.well-known/agent-card.json
+            port: 10003
+          initialDelaySeconds: 30
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /.well-known/agent-card.json
+            port: 10003
+          initialDelaySeconds: 5
+          periodSeconds: 5

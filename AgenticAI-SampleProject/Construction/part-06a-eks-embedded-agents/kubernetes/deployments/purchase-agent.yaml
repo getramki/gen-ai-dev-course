@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: purchase-agent
+  namespace: part-a-purchase-ns
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: purchase-agent
+  template:
+    metadata:
+      labels:
+        app: purchase-agent
+    spec:
+      containers:
+        - name: purchase-agent
+          image: ${AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com/construction-purchase-agent:latest
+          ports:
+            - containerPort: 10001
+          env:
+            - name: AGENT_TYPE
+              value: "purchase"
+            - name: A2A_ENDPOINT
+              valueFrom:
+                configMapKeyRef:
+                  name: alb-endpoints
+                  key: purchase-endpoint
+          resources:
+            requests:
+              cpu: 100m
+              memory: 256Mi
+            limits:
+              cpu: 500m
+              memory: 512Mi
+          livenessProbe:
+            httpGet:
+              path: /.well-known/agent-card.json
+              port: 10001
+            initialDelaySeconds: 30
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /.well-known/agent-card.json
+              port: 10001
+            initialDelaySeconds: 5
+            periodSeconds: 5

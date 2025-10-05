@@ -1,0 +1,31 @@
+{
+  "contract_id": "AGENTCORE_CONTRACT_20251004_094623",
+  "timestamp": "2025-10-04T09:46:39.340349",
+  "project_details": {
+    "project_name": "Downtown Construction Complex",
+    "cement_quantity": 1000,
+    "cement_grade": "42.5 OPC",
+    "cement_budget": 55000,
+    "steel_quantity": 100,
+    "steel_grade": "Grade A",
+    "steel_types": "Rebar and structural steel",
+    "steel_budget": 75000,
+    "location": "Downtown construction site",
+    "delivery_timeline": "Within 14 days",
+    "payment_terms": "30 days net"
+  },
+  "cement_contract": {
+    "supplier": "AgentCore Cement Agent",
+    "negotiation_cycles": 0,
+    "final_terms": "\n- Quantity: 1000 tons 42.5 OPC\n- Budget: $55,000\n- Delivery: Within 14 days\n- Payment: 30 days net\n- Negotiation cycles completed: 0\n",
+    "proposals_history": []
+  },
+  "steel_contract": {
+    "supplier": "AgentCore Steel Agent",
+    "negotiation_cycles": 0,
+    "final_terms": "\n- Quantity: 100 tons Grade A\n- Types: Rebar and structural steel\n- Budget: $75,000\n- Delivery: Within 14 days\n- Payment: 30 days net\n- Negotiation cycles completed: 0\n",
+    "proposals_history": []
+  },
+  "total_budget": 130000,
+  "contract_status": "NEGOTIATED_AGENTCORE"
+}

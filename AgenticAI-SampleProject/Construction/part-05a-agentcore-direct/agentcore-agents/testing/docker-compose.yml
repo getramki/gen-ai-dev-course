@@ -1,0 +1,75 @@
+version: '3.8'
+
+services:
+  purchase-agent:
+    build:
+      context: .
+      dockerfile: Dockerfile.purchase
+    image: agentcore-purchase-agent:latest
+    container_name: agentcore-purchase-agent
+    ports:
+      - "8080:8080"
+    environment:
+      - AWS_DEFAULT_REGION=us-east-1
+      - PORT=8080
+    volumes:
+      - ~/.aws:/root/.aws:ro
+    networks:
+      - agentcore-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  cement-agent:
+    build:
+      context: .
+      dockerfile: Dockerfile.cement
+    image: agentcore-cement-agent:latest
+    container_name: agentcore-cement-agent
+    ports:
+      - "8081:8080"
+    environment:
+      - AWS_DEFAULT_REGION=us-east-1
+      - PORT=8080
+    volumes:
+      - ~/.aws:/root/.aws:ro
+    networks:
+      - agentcore-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  steel-agent:
+    build:
+      context: .
+      dockerfile: Dockerfile.steel
+    image: agentcore-steel-agent:latest
+    container_name: agentcore-steel-agent
+    ports:
+      - "8082:8080"
+    environment:
+      - AWS_DEFAULT_REGION=us-east-1
+      - PORT=8080
+    volumes:
+      - ~/.aws:/root/.aws:ro
+    networks:
+      - agentcore-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+networks:
+  agentcore-network:
+    driver: bridge

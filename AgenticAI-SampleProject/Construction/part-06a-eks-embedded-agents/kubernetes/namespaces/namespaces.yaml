@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: part-a-purchase-ns
+  labels:
+    app: construction-agents
+    agent: purchase
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: part-a-cement-ns
+  labels:
+    app: construction-agents
+    agent: cement
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: part-a-steel-ns
+  labels:
+    app: construction-agents
+    agent: steel
