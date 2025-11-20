@@ -15,17 +15,27 @@ spec:
     spec:
       containers:
         - name: purchase-agent
-          image: ${AWS_ACCOUNT_ID}.dkr.ecr.us-east-1.amazonaws.com/construction-purchase-agent:latest
+          image: 910673207244.dkr.ecr.us-east-1.amazonaws.com/construction-purchase-agent:latest
           ports:
             - containerPort: 10001
           env:
             - name: AGENT_TYPE
               value: "purchase"
-            - name: A2A_ENDPOINT
+            - name: PURCHASE_ENDPOINT
               valueFrom:
                 configMapKeyRef:
                   name: alb-endpoints
                   key: purchase-endpoint
+            - name: CEMENT_ENDPOINT
+              valueFrom:
+                configMapKeyRef:
+                  name: alb-endpoints
+                  key: cement-endpoint
+            - name: STEEL_ENDPOINT
+              valueFrom:
+                configMapKeyRef:
+                  name: alb-endpoints
+                  key: steel-endpoint
           resources:
             requests:
               cpu: 100m

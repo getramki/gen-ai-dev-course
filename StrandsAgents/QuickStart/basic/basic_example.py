@@ -6,6 +6,7 @@ A simple demonstration of creating and using an agent with tools.
 
 from strands import Agent, tool
 
+@tool(name="calculator", description="Perform mathematical calculations")
 def calculator(expression: str) -> str:
     """Calculate mathematical expressions safely"""
     try:
@@ -19,6 +20,7 @@ def calculator(expression: str) -> str:
     except Exception as e:
         return f"Error: {e}"
 
+@tool(name="text_analyzer", description="Analyze text statistics")
 def text_analyzer(text: str) -> str:
     """Analyze text and return basic statistics"""
     words = text.split()
@@ -32,24 +34,11 @@ def text_analyzer(text: str) -> str:
 - Average word length: {chars/len(words):.1f} chars"""
 
 def main():
-    # Create tools
-    calc_tool = tool(
-        name="calculator",
-        description="Perform mathematical calculations",
-        function=calculator
-    )
-    
-    analyzer_tool = tool(
-        name="text_analyzer", 
-        description="Analyze text statistics",
-        function=text_analyzer
-    )
-    
-    # Create agent with multiple tools
+    # Create agent with decorated tools
     agent = Agent(
         name="UtilityAgent",
         description="A utility agent that can calculate and analyze text",
-        tools=[calc_tool, analyzer_tool]
+        tools=[calculator, text_analyzer]
     )
     
     # Example interactions
@@ -57,14 +46,14 @@ def main():
     
     # Math calculation
     print("1. Mathematical calculation:")
-    response = agent.run("Calculate 25 * 4 + 10")
-    print(f"Response: {response}\n")
+    agent("Calculate 25 * 4 + 10")
+    print()
     
     # Text analysis
     print("2. Text analysis:")
     sample_text = "Hello world! This is a sample text for analysis. How are you?"
-    response = agent.run(f"Analyze this text: {sample_text}")
-    print(f"Response: {response}\n")
+    agent(f"Analyze this text: {sample_text}")
+    print()
     
     print("=== Example Complete ===")
 

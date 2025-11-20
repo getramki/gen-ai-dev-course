@@ -1,0 +1,21 @@
+INTEREST RATES SAMPLE PROMPTS:
+
+1. "What are the current home loan interest rates available?"
+
+2. "Show me interest rates for HDFC bank"
+
+3. "What's the home loan rate at SBI?"
+
+4. "Get me all available interest rates for home loans"
+
+5. "What are the rates offered by ICICI bank for home loans?"
+
+6. "Show current interest rates for personal loans at Axis bank"
+
+7. "Compare home loan rates across all banks"
+
+8. "What's the lowest interest rate available for home loans?"
+
+9. "Get interest rates for car loans at HDFC"
+
+10. "Show me all loan types and their rates at SBI"

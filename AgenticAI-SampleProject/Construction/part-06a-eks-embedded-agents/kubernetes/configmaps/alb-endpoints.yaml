@@ -4,9 +4,9 @@ metadata:
   name: alb-endpoints
   namespace: part-a-purchase-ns
 data:
-  purchase-endpoint: "PURCHASE_ALB_ENDPOINT"
-  cement-endpoint: "CEMENT_ALB_ENDPOINT"
-  steel-endpoint: "STEEL_ALB_ENDPOINT"
+  purchase-endpoint: "ALB_DNS_NAME/purchase"
+  cement-endpoint: "ALB_DNS_NAME/cement"
+  steel-endpoint: "ALB_DNS_NAME/steel"
 ---
 apiVersion: v1
 kind: ConfigMap
@@ -14,9 +14,9 @@ metadata:
   name: alb-endpoints
   namespace: part-a-cement-ns
 data:
-  purchase-endpoint: "PURCHASE_ALB_ENDPOINT"
-  cement-endpoint: "CEMENT_ALB_ENDPOINT"
-  steel-endpoint: "STEEL_ALB_ENDPOINT"
+  purchase-endpoint: "ALB_DNS_NAME/purchase"
+  cement-endpoint: "ALB_DNS_NAME/cement"
+  steel-endpoint: "ALB_DNS_NAME/steel"
 ---
 apiVersion: v1
 kind: ConfigMap
@@ -24,6 +24,6 @@ metadata:
   name: alb-endpoints
   namespace: part-a-steel-ns
 data:
-  purchase-endpoint: "PURCHASE_ALB_ENDPOINT"
-  cement-endpoint: "CEMENT_ALB_ENDPOINT"
-  steel-endpoint: "STEEL_ALB_ENDPOINT"
+  purchase-endpoint: "ALB_DNS_NAME/purchase"
+  cement-endpoint: "ALB_DNS_NAME/cement"
+  steel-endpoint: "ALB_DNS_NAME/steel"

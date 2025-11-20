@@ -1,0 +1,8 @@
+{
+  "timestamp": "2025-10-06T16:39:35.491276",
+  "from_agent": "SYSTEM",
+  "to_agent": "purchase",
+  "type": "CONNECTED",
+  "content": "Agent connected: Construction Purchase Agent",
+  "llm_reasoning": null
+}

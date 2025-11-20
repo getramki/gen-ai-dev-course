@@ -1,0 +1,24 @@
+[project]
+name = "demo_crew"
+version = "0.1.0"
+description = "demo-crew using crewAI"
+authors = [{ name = "Your Name", email = "you@example.com" }]
+requires-python = ">=3.10,<3.14"
+dependencies = [
+    "crewai[bedrock,tools]==1.3.0",
+]
+
+[project.scripts]
+demo_crew = "demo_crew.main:run"
+run_crew = "demo_crew.main:run"
+train = "demo_crew.main:train"
+replay = "demo_crew.main:replay"
+test = "demo_crew.main:test"
+run_with_trigger = "demo_crew.main:run_with_trigger"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.crewai]
+type = "crew"

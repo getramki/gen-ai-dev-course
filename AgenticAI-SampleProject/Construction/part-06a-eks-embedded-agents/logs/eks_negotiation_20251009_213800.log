@@ -1,0 +1,7 @@
+2025-10-09 21:38:00,416 - __main__ - INFO - Sending to purchase: 
+PROCUREMENT REQUEST - Downtown Construction Complex
+
+CEMENT REQUIREMENTS:
+- Quantity: 1000 tons
+- G...
+2025-10-09 21:38:00,904 - __main__ - ERROR - Error during EKS negotiation: 404, message='Not Found', url='http://k8s-constructionagent-e21a474cac-638980136.us-east-1.elb.amazonaws.com/purchase/a2a/message'

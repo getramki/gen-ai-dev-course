@@ -1,0 +1,73 @@
+{
+  "contract_id": "CONTRACT_20251002_172646",
+  "timestamp": "2025-10-02T17:32:38.138668",
+  "project_details": {
+    "project_name": "Downtown Construction Complex",
+    "cement_quantity": 1000,
+    "cement_grade": "42.5 OPC",
+    "cement_budget": 55000,
+    "steel_quantity": 100,
+    "steel_grade": "Grade A",
+    "steel_types": "Rebar and structural steel",
+    "steel_budget": 75000,
+    "location": "Downtown construction site",
+    "delivery_timeline": "Within 14 days",
+    "payment_terms": "30 days net"
+  },
+  "cement_contract": {
+    "supplier": "Cement Sales Agent",
+    "negotiation_cycles": 4,
+    "final_terms": "\n- Quantity: 1000 tons 42.5 OPC\n- Budget: $55,000\n- Delivery: Within 14 days\n- Payment: 30 days net\n- Negotiation cycles completed: 4\n",
+    "proposals_history": [
+      {
+        "cycle": 1,
+        "response": "Unable to process cement quote request. Please provide quantity and delivery requirements.",
+        "task_id": "9713a96b-3a61-4ffd-8a71-08dada601283"
+      },
+      {
+        "cycle": 2,
+        "response": "Unable to process cement quote request. Please provide quantity and delivery requirements.",
+        "task_id": "7245b28d-7f63-44b7-8503-9783499715c0"
+      },
+      {
+        "cycle": 3,
+        "response": "Unable to process cement quote request. Please provide quantity and delivery requirements.",
+        "task_id": "cd2f05b8-595c-4674-8622-829c2ce22107"
+      },
+      {
+        "cycle": 4,
+        "response": "Unable to process cement quote request. Please provide quantity and delivery requirements.",
+        "task_id": "31996d7c-b8a1-48e2-95e9-bb6da6b1a80a"
+      }
+    ]
+  },
+  "steel_contract": {
+    "supplier": "Steel Sales Agent",
+    "negotiation_cycles": 4,
+    "final_terms": "\n- Quantity: 100 tons Grade A\n- Types: Rebar and structural steel\n- Budget: $75,000\n- Delivery: Within 14 days\n- Payment: 30 days net\n- Negotiation cycles completed: 4\n",
+    "proposals_history": [
+      {
+        "cycle": 1,
+        "response": "Unable to process steel quote request. Please provide steel grade, quantity and delivery requirements.",
+        "task_id": "74d85c33-22c9-4a12-9de3-43e6a18824a2"
+      },
+      {
+        "cycle": 2,
+        "response": "Unable to process steel quote request. Please provide steel grade, quantity and delivery requirements.",
+        "task_id": "1e15ff48-3fbc-49b3-ad2c-90b0992d4d57"
+      },
+      {
+        "cycle": 3,
+        "response": "Unable to process steel quote request. Please provide steel grade, quantity and delivery requirements.",
+        "task_id": "144ff23d-b4b3-4fbe-a7f2-dfb0b9289fb8"
+      },
+      {
+        "cycle": 4,
+        "response": "Unable to process steel quote request. Please provide steel grade, quantity and delivery requirements.",
+        "task_id": "aa117198-59ed-41ce-b113-b412c7c520ec"
+      }
+    ]
+  },
+  "total_budget": 130000,
+  "contract_status": "NEGOTIATED"
+}

@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"path": "../../.."
+		},
+		{
+			"path": "../../../../Docker"
+		},
+		{
+			"path": "../../../../Demos"
+		},
+		{
+			"path": "../../../../GenAI"
+		}
+	],
+	"settings": {
+		"java.compile.nullAnalysis.mode": "disabled"
+	}
+}

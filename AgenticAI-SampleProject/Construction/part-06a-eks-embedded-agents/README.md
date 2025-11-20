@@ -1,73 +1,93 @@
 # Part 6-A: EKS Deployment with Embedded Agents
 
 ## Overview
-Deploy Part 4 agents to Amazon EKS with A2A communication across subdomains. Each agent runs in separate namespaces with embedded LangChain tools and external A2A communication.
+Deploy Part 4 agents to Amazon EKS with A2A communication. Each agent runs in separate namespaces with embedded LangChain tools and external A2A communication via a single ALB.
 
 ## Architecture
 ```
 EKS Cluster
-├── part-a-purchase-ns → Purchase Agent ALB
-├── part-a-cement-ns → Cement Agent ALB  
-└── part-a-steel-ns → Steel Agent ALB
+├── part-a-purchase-ns → Purchase Agent (/purchase)
+├── part-a-cement-ns → Cement Agent (/cement)
+└── part-a-steel-ns → Steel Agent (/steel)
+     ↓
+   Single ALB (Path-based routing)
 ```
 
-**A2A Communication**: Each agent gets dedicated ALB endpoint for inter-agent communication
+**A2A Communication**: Single ALB with path-based routing for each agent
 
 ## Prerequisites
-- AWS CLI configured with ECR permissions
-- eksctl installed
+- AWS CLI configured with appropriate permissions
+- eksctl installed (v0.214.0+)
 - kubectl installed
+- Helm installed
 - Docker images from Part 4 built
 - ECR repositories access
 
-## Quick Start
+## Training Setup (Multiple Batches)
+This setup is designed for conducting multiple training batches with complete cluster lifecycle management.
+
+## Complete Setup (New Training Batch)
+
+### 1. Initial Setup (One-time per batch)
 ```bash
-# 1. Build Part 4 images (if not already built)
+# Build Part 4 images (if not already built)
 cd ../part-04-local-deployment/scripts/
 ./build.sh
 
-# 2. Push images to ECR
+# Push images to ECR
 cd ../../part-06a-eks-embedded-agents/scripts/
 ./push-to-ecr.sh
 
-# 3. Create EKS cluster
-cd ../eksctl/
-eksctl create cluster -f cluster-config.yaml
+# Create complete EKS setup (cluster + ALB controller + subnet tags)
+./create-cluster.sh construction-agents us-east-1
+```
 
-# 4. Deploy agents (creates ALBs and updates endpoints)
-cd ../scripts/
+### 2. Deploy Applications
+```bash
+# Deploy agents (automatically checks prerequisites)
 ./deploy.sh
 
-# 3. Restart deployments to pick up ALB endpoints
-kubectl rollout restart deployment/purchase-agent -n part-a-purchase-ns
-kubectl rollout restart deployment/cement-agent -n part-a-cement-ns
-kubectl rollout restart deployment/steel-agent -n part-a-steel-ns
+# Wait for ALB creation and get endpoints
+echo "Waiting for ALB creation..."
+sleep 60
+kubectl get ingress -A
 
-# 4. Wait for rollout completion
-kubectl rollout status deployment/purchase-agent -n part-a-purchase-ns
-kubectl rollout status deployment/cement-agent -n part-a-cement-ns
-kubectl rollout status deployment/steel-agent -n part-a-steel-ns
-
-# 5. Test negotiation
+# Test the deployment
 python negotiation_demo.py
-
-# 6. Test autoscaling
 ./test-autoscaling.sh
+```
+
+### 3. Cleanup (End of batch)
+```bash
+# Complete cleanup (applications + cluster)
+./cleanup-cluster.sh construction-agents
+```
+
+## Quick Commands
+```bash
+# Full setup
+./create-cluster.sh && ./deploy.sh
+
+# Full cleanup  
+./cleanup-cluster.sh
+
+# Redeploy applications only
+./delete.sh && ./deploy.sh
 ```
 
 ## Components
 - **EKS Cluster**: Multi-AZ cluster with managed node groups
 - **Namespaces**: Isolated environments for each agent
-- **ALB Ingress**: Separate Application Load Balancer per agent
+- **ALB Ingress**: Single Application Load Balancer with path-based routing
 - **ConfigMaps**: Dynamic ALB endpoint configuration
 - **HPA**: Horizontal Pod Autoscaling
 - **A2A Communication**: Cross-ALB agent communication
 
 ## ALB Endpoints
-After deployment, each agent gets a unique ALB endpoint:
+After deployment, agents share a single ALB with different ports:
 ```bash
-# View ALB endpoints
-kubectl get ingress -A
+# View ALB endpoint
+kubectl get ingress construction-agents-ingress -n part-a-purchase-ns
 
 # Check ConfigMap values
 kubectl get configmap alb-endpoints -n part-a-purchase-ns -o yaml

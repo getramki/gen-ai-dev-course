@@ -1,0 +1,13 @@
+EMI CALCULATION SAMPLE PROMPTS:
+
+1. "Calculate EMI for a home loan of 50 lakhs at 8.5% interest for 20 years"
+
+2. "What will be my monthly EMI if I take a loan of 3000000 rupees at 9% interest rate for 15 years?"
+
+3. "I want to buy a house worth 75 lakhs. I can pay 15 lakhs as down payment. Calculate EMI for remaining amount at 8.75% for 25 years"
+
+4. "Calculate monthly installment for principal amount 4500000, interest rate 7.5%, tenure 18 years"
+
+5. "What's the EMI for 25 lakh loan at 9.25% interest for 12 years?"
+
+6. "I need EMI calculation for home loan - principal: 6000000, rate: 8%, tenure: 30 years"

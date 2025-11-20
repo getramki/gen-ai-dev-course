@@ -1,0 +1,14 @@
+{
+  "actionGroup": "loan-calculator",
+  "function": "get-interest-rates",
+  "parameters": [
+    {
+      "name": "bank_name",
+      "value": "HDFC"
+    },
+    {
+      "name": "loan_type",
+      "value": "home_loan"
+    }
+  ]
+}

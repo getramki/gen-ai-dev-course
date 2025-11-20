@@ -1,0 +1,35 @@
+{
+  "test_all_rates": {
+    "actionGroup": "loan-calculator",
+    "function": "get-interest-rates",
+    "parameters": []
+  }
+}
+{
+  "test_specific_bank": {
+    "actionGroup": "loan-calculator",
+    "function": "get-interest-rates",
+    "parameters": [
+      {
+        "name": "bank_name",
+        "value": "HDFC"
+      }
+    ]
+  }
+}
+{
+  "test_specific_rate": {
+    "actionGroup": "loan-calculator",
+    "function": "get-interest-rates",
+    "parameters": [
+      {
+        "name": "bank_name",
+        "value": "HDFC"
+      },
+      {
+        "name": "loan_type",
+        "value": "home_loan"
+      }
+    ]
+  }
+}
