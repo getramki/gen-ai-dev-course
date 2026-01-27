@@ -1,6 +1,6 @@
 # Agentic AI for Enterprise Procurement - Complete Implementation Guide
 
-This repository contains a complete, production-ready implementation of autonomous AI agents for enterprise procurement, demonstrating Model Context Protocol (MCP) for internal system communication and Agent-to-Agent (A2A) protocol for cross-company negotiations.
+This repository contains a sample implementation of autonomous AI agents for enterprise procurement, demonstrating Model Context Protocol (MCP) for internal system communication and Agent-to-Agent (A2A) protocol for cross-company negotiations. This is in a easy to learn course format.
 
 ## 📚 Blog Post Series
 
