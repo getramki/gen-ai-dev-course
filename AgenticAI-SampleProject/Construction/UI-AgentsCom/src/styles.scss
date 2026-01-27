@@ -1,0 +1,26 @@
+@use 'styles/variables' as *;
+@use 'styles/mixins' as *;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+
+.success-snackbar {
+  background: #4caf50 !important;
+  color: white !important;
+}
+
+.error-snackbar {
+  background: #f44336 !important;
+  color: white !important;
+}

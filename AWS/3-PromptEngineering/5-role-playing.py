@@ -2,7 +2,7 @@ import boto3
 import json
 import asyncio
 
-bedrock = boto3.client('bedrock-runtime')
+bedrock = boto3.client('bedrock-runtime', region_name='us-east-1')
 
 async def get_completion(prompt, model="amazon.titan-text-express-v1"):
     body = json.dumps({

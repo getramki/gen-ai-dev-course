@@ -30,7 +30,7 @@ def demo_individual_agents():
         "cement_tons": 500,
         "steel_tons": 200,
         "quality_grade": "A",
-        "delivery_deadline": "2024-03-15"
+        "delivery_deadline": "2026-03-15"
     }
     
     result = purchase_agent.process_procurement(requirements, 150000)

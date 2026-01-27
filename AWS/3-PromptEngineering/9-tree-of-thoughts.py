@@ -1,7 +1,7 @@
 import boto3
 import json
 
-bedrock = boto3.client('bedrock-runtime')
+bedrock = boto3.client('bedrock-runtime', region_name='us-east-1')
 
 def get_completion(prompt, model="amazon.titan-text-express-v1"):
     body = json.dumps({

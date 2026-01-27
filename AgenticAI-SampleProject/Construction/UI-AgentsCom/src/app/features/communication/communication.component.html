@@ -1,0 +1,55 @@
+<div class="communication-container">
+  <app-header />
+  
+  <div class="dashboard-content">
+    <div class="left-panel">
+      @if (purchaseAgent()) {
+        <app-agent-card [agent]="purchaseAgent()!" [messageCount]="getMessageCount(purchaseAgent()!.name)" />
+      }
+      <app-negotiation-stats [messages]="messages()" />
+    </div>
+
+    <div class="center-panel">
+      <app-conversation-flow [messages]="messages()" />
+      
+      <app-message-timeline [messages]="messages()" />
+      
+      @if (loading()) {
+        <div class="loading-overlay">
+          <mat-spinner diameter="40"></mat-spinner>
+          <p>Loading...</p>
+        </div>
+      }
+      
+      <div class="actions">
+        <button mat-raised-button color="primary" (click)="loadSampleData()">
+          <mat-icon>science</mat-icon>
+          Load Sample Data
+        </button>
+        <button mat-raised-button (click)="loadFromFile()">
+          <mat-icon>upload_file</mat-icon>
+          Load JSON File
+        </button>
+        <button mat-raised-button color="accent" (click)="startPolling()" [disabled]="pollingActive()">
+          <mat-icon>sync</mat-icon>
+          {{ pollingActive() ? 'Polling Active' : 'Start Polling' }}
+        </button>
+        @if (pollingActive()) {
+          <button mat-raised-button color="warn" (click)="stopPolling()">
+            <mat-icon>stop</mat-icon>
+            Stop Polling
+          </button>
+        }
+      </div>
+    </div>
+
+    <div class="right-panel">
+      @if (cementAgent()) {
+        <app-agent-card [agent]="cementAgent()!" [messageCount]="getMessageCount(cementAgent()!.name)" />
+      }
+      @if (steelAgent()) {
+        <app-agent-card [agent]="steelAgent()!" [messageCount]="getMessageCount(steelAgent()!.name)" />
+      }
+    </div>
+  </div>
+</div>

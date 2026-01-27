@@ -1,22 +1,36 @@
 {
 	"folders": [
 		{
+			"name": "GenAI-for-Dev-Course",
 			"path": "../../.."
 		},
 		{
+			"name": "Security-In-Agentic-AI-Course",
+			"path": "../../../../Security-In-Agentic-AI-Course"
+		},
+		{
+			"name": "Docker",
 			"path": "../../../../Docker"
 		},
 		{
+			"name": "Demos",
 			"path": "../../../../Demos"
 		},
 		{
+			"name": "GenAI",
 			"path": "../../../../GenAI"
 		},
 		{
+			"name": "EKS",
 			"path": "../../../../EKS"
 		},
 		{
+			"name": "Work",
 			"path": "../../../../Work"
+		},
+		{
+			"name": "Sample-Projects",
+			"path": "../../../../Sample-Projects"
 		}
 	],
 	"settings": {
